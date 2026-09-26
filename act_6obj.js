@@ -7,6 +7,7 @@ const producto ={
     precio:15,
     categoria:"bebida",
     disponible:true,
+    cantidad:3,
 
     //Metodos
     resumen(){
@@ -67,3 +68,46 @@ console.log(nombre, precio);
 
 const {cantidad, nota = "sin nota"} = pedido;
 console.log(cantidad, nota);
+console.log("Alexander soy preogramador")
+
+
+//-------------- Paso 7 ------------
+const total = producto.precio * pedido.cantidad;
+pedido.total = total;
+
+console.log("-------Paso 7 ------");
+console.log(pedido);
+
+//--------Paso 8 Copiar ----------
+console.log("-------Paso 8-------");
+const copiaMala = producto;
+copiaMala.precio = 999;
+console.log(producto.precio);
+//  Va a imrpimir 999: copiaMala y producto apuntan al MISMO objeto
+// la variable no guarda el objeto, guarda donde esta
+
+producto.precio = 15; //lo dejamos como esta
+
+const copiaBuena = {...producto};
+copiaBuena.precio = 1000;
+console.log(producto.precio);// 15 eloriginal quedo intacto
+
+
+
+// -------------Paso 9 -----------
+console.log("---------Paso 9 ---------");
+
+const respuestaOK = {
+    ok: true,
+    data:pedido
+};
+
+const respuestaError = {
+    ok: false,
+    error: {
+        mensaje:"El producto no esta diponible",
+        detalles:[]
+    }  
+};
+console.log(respuestaOK);
+console.log(respuestaError);
